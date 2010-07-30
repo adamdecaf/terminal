@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> JavaScript / PHP Terminal</title>
+	<meta charset="utf-8" />
+	
+<style>
+h3 {
+	font-family: Helvetica;
+	font-size: 1.35em;
+}
+
+span.hide {
+	display: none;
+}
+
+span.center {
+	display: block;
+	padding: 5px 5px 5px 5px;
+	text-align: left;
+}
+
+div.left, div.right {
+	border: 1px solid #000000;
+	float: right;
+	padding: 5px 5px 5px 5px;
+	width: 46.5%;
+}
+
+	div.left ul, div.right ul {
+		list-style-type: square;
+	}
+	
+		div.left ul li, div.right ul li {
+			margin-bottom: 5px;
+		}
+		
+			div.left ul li:hover > span.hide, div.right ul li:hover > span.hide {
+				display: inline;
+			}
+	
+		div.left ul li.completed, div.right ul li.completed {
+			/* text-decoration: underline; */
+		}
+		
+			div.left ul li.completed:after, div.right ul li.completed:after {
+				content: ' [x]';
+				font-size: 0.75em;
+				text-decoration: none;
+			}
+			
+div.left {
+	float: left;
+}
+			
+div.bottom {
+	bottom: 5px;
+	position: absolute;
+	margin-top: 5px;
+}
+	
+div#terminal {
+	border: 1px solid #000000;
+	padding: 5px 5px 5px 5px;
+	width: 50%;
+}
+
+	textarea {
+		border: 1px solid #000000;
+		height: 300px;
+		width: 99%;
+	}
+
+	input[type=text]#submit {
+		border: 1px solid #000000;
+		font-family: Courier New;
+		font-size: 1em;
+		height: 20px;
+		width: 99.7%;
+	}
+</style>
+</head>
+<body>
+
+	<h3>Terminal</h3>
+	
+	<div class="right">
+		<span class="center">
+			Rollover commands to find the flags.  
+			Commands with an "[x]" after them are completed.
+		</span>
+		
+		<div class="left">
+			Local Commands
+			<ul>
+				<li title="print a calendar">cal 						<span class="hide">[year] [month]</span></li>
+				<li title="move to a directory" class="completed">cd 	<span class="hide">(path)</span></li>
+				<li title="clear the screen" class="completed">clear 	<span class="hide">[N/A]</span></li>
+				<li title="copy _A_ to _B_">copy 						<span class="hide">(file/directory) (new location)</span></li>
+				<li title="show the contents of a directory">dir 		<span class="hide">(directory)</span></li>
+				<li title="show disk information">disk 					<span class="hide">[N/A]</span></li>
+				<li title="search in a string/file">grep 				<span class="hide">(needle) (haystack)</span></li>
+				<li title="show some information for a file">info		<span class="hide">(file)</span></li>
+				<li title="show networking information">ip 				<span class="hide">[N/A]</span></li>
+				<li title="login as a new user">login 					<span class="hide">(user) (pass)</span></li>
+				<li title="logout of an account">logout 				<span class="hide">[N/A]</span></li>
+				<li title="move _A_ to _B_">move 						<span class="hide">(file/directory) (new location)</span></li>
+				<li title="create a new folder/file">new 				<span class="hide">(file/folder) (name)</span></li>
+				<li title="open a file">open 							<span class="hide">(file)</span></li>
+				<li title="print working directory">pwd 				<span class="hide">[N/A]</span></li>
+				<li title="save a file">save							<span class="hide">(file) (location)</span></li>
+				<li title="perform an admin task">sudo 					<span class="hide">(command)</span></li>
+			</ul>
+		</div>
+	
+		<div class="right">
+			Remote Commands:
+			<ul>
+				<!-- <li>spell (word)</li> -->
+				<li title="print the date" class="completed">date 						<span class="hide">[format] [timezone]</span></li>
+				<li title="return the diff of two strings">diff 						<span class="hide">(string1) (string2)</span></li>
+				<li title="print text back to the screen" class="completed">echo 		<span class="hide">(Sting)</span></li>
+				<li title="get the response from a resource" class="completed">get 		<span class="hide">(url) [header] [timeout] [http_version] [port] [referer] [useragent] [user:pass]</span></li>
+				<li title="return an array of a JSON response">json 					<span class="hide">(url)</span></li>
+				<li title="perform math operations">math 								<span class="hide">(option) [values]+</span></li>
+				<li title="send an email" class="completed">mail 						<span class="hide">(to) (from) (subject) [message] [reply] [cc] [bcc]</span></li>
+				<li title="print the md5 hash of a string" class="completed">md5 		<span class="hide">(string) <!-- [file] --></span></li>
+				<li title="generate a random string" class="completed">pass 			<span class="hide">[length] [alpha] [numeric] [symbols] [count]</span></li>
+				<li title="print a random number" class="completed">random 				<span class="hide">[add] [muliply] [min] [max] [count]</span></li>
+				<li title="print the sha1 hash of a string" class="completed">sha1 		<span class="hide">(string) <!-- [file] --></span></li>
+				<li title="send an SMS message" class="completed">sms 					<span class="hide">(to) (carrier) (from) (message)</span></li>
+				<li title="print the unix timestamp (UTC)" class="completed">time 		<span class="hide"><del>[timezone]</del></span></li>
+				<li title="break down a uri into its parts" class="completed">parseurl 	<span class="hide">(url)</span></li>
+				<li title="send the WHOIS data for a url" class="completed">whois 		<span class="hide">(url)</span></li>
+			</ul>
+		</div>
+	</div>
+	
+	<div class="bottom">
+		ToDo:
+		<ul>
+			<li>File Structure (All client side, linux format)</li>
+			<li>Regular terminal commands</li>
+		</ul>
+	</div>
+	
+	<div id="terminal">
+		<textarea readonly></textarea>
+			<br />
+		<input type="text" id="submit" autofocus />
+	</div>
+	
+<script src="terminal.js"></script>
+<script>
+window.onload = function () {
+	
+	// Boot the terminal
+	Filesystem.kernel.boot();
+	
+};
+</script>
+</body>
+</html>

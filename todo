@@ -1,0 +1,22 @@
+== Terminal Todo ==
+ - Have commands be sent by input field right below textarea
+ - textarea should be readonly
+ - submit commands on enter
+ - command goes to php script and result is returned
+ - order of commands should not matter
+ 
+== Commands ==
+:: command (required) (required) [optional] [optional]
+ - echo (Sting) [times]
+ - time [timezone]
+ - date [format]
+ - diff (string1) (string2)
+ - clear
+ - random [add/muliply by value] [times] [int]
+ - get (url) [header]
+ - whois (url)
+ - parseurl (url)
+ - math (option) [values]+
+ - mail (to) (from) (subject) (message)
+ - spell (word)
+ - json (url)
